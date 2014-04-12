@@ -27,6 +27,6 @@ Nazwy miast pisane są małymi literami bez polskich znaków.
 
 Nazwa jednostki jest elementem opcjonalnym. Pojawia się gdy jednostka urzędu posiada własny BIP.
 
-Przykładowo crawler urzędu miasta Bielsko-Biała będzie miał nazwę:
+Przykładowo pajączek urzędu miasta Bielsko-Biała będzie miał nazwę:
 um_bielsko-biala.py
 
