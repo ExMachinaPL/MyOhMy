@@ -63,10 +63,8 @@ DANE dla poszczególnych przypadków maja następujący schemat:
 Inline scripts::
  [URL]=url strony [ISCRIPT] tag otwierający skrypt, liczba znaków (\w) w osadzonym skrypcie
 
-Linki - odpowiednio dla wartości 1 ::
+Linki::
  [URL]=url strony [LINK]=zawartość tagu <a>
-oraz 2 ::
- Zawartość tagu <a>
 
 Znaczniki Meta::
  [URL]=url strony [META]=zawartość tagu <meta>
