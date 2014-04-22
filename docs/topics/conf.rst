@@ -19,10 +19,10 @@ LOG_LEVEL = INFO
 Dodatkowe parametry
 -------------------
 
-Dodatkowe parametry przyjmują wartości: 0 (wyłączone) i 1 (włączone). W szczególnych przypadkach 2.
+Dodatkowe parametry przyjmują wartości: 0 (wyłączone) i 1 (włączone).
 
 - LOG_ISCRIPTS - Logowanie statystyk skryptów osadzonych w stronie
-- LOG_LINKS - Logowanie znalezionych linków. Ustawienie 2 - sam link
+- LOG_LINKS - Logowanie znalezionych linków.
 - LOG_META - Logowanie znaczników <meta>
 - LOG_SCRIPTS - Logowanie informacji o zewnętrznych skryptach
 
