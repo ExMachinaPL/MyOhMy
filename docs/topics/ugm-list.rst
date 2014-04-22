@@ -5,9 +5,9 @@ Lista Urzędów gmin i miast
 ==========================
 
 
-================================================ ====== ===========
-                 Gmina i Miasto                   Jest   od wersji
-================================================ ====== ===========
+================================================ ======
+                 Gmina i Miasto                   Jest
+================================================ ======
 Urząd Gminy i Miasta Baranów Sandomierski
 Urząd Gminy i Miasta Barwice
 Urząd Gminy i Miasta Bisztynek
@@ -219,4 +219,6 @@ Urząd Miasta i Gminy Wysoka
 Urząd Miasta i Gminy Zawichost
 Urząd Miasta i Gminy Złocieniec
 Urząd Miasta i Gminy Żmigród
-================================================ ====== ===========
+Urząd Miasta-Gminy Stryków
+Urząd Miejski Gminy Rakoniewice
+================================================ ======

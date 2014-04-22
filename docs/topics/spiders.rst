@@ -23,10 +23,11 @@ Gdzie typy jednostki są reprezentowane przez następujące skróty:
 - **ug** - urząd gminy
 - **umg** - urząd miasta i gminy
 
-Nazwy miast pisane są małymi literami bez polskich znaków.
+Nazwy pisane są małymi literami.
+Polskie znaki są zastępowane dużą literą odpowiednika z alfabetu łacieńskiego
 
 Nazwa jednostki jest elementem opcjonalnym. Pojawia się gdy jednostka urzędu posiada własny BIP.
 
 Przykładowo pajączek BIP'u urzędu miasta Bielsko-Biała będzie miał nazwę:
-bip_um_bielsko-biala.py
+bip_um_bielsko-biaLa.py
 

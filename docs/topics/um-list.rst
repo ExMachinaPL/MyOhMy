@@ -6,9 +6,9 @@ Lista urzędów miast
 
 .. table:: Lista Miast
 
-============================================= ====== ===========
-                  Miasto                       Jest   od wersji
-============================================= ====== ===========
+============================================= ======
+                  Miasto                       Jest
+============================================= ======
 Urząd Miasta Aleksandrów Kujawski
 Urząd Miasta Augustów
 Urząd Miasta Bartoszyce
@@ -305,6 +305,4 @@ Urząd Miasta Zielona Góra
 Urząd Miasta Zielonka
 Urząd Miasta Żagań
 Urząd Miasta Żory
-Urząd Miasta-Gminy Stryków
-Urząd Miejski Gminy Rakoniewice
-============================================= ====== ===========
+============================================= ======
