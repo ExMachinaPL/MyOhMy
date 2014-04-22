@@ -9,8 +9,8 @@ import sys
 import re
 import ast
 
-class UmSzczecin(CrawlSpider):
-    name = 'um_szczecin'
+class BipUmSzczecin(CrawlSpider):
+    name = 'bip_um_szczecin'
     allowed_domains = ['bip.um.szczecin.pl']
     start_urls = ['http://bip.um.szczecin.pl']
     geo = "53.437747,14.542121"
