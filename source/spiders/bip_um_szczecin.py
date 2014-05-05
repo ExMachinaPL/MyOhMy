@@ -33,7 +33,7 @@ class BipUmSzczecin(CrawlSpider):
         textFlag = False
 
         for i in textHeaders:
-             if i in response.headers['Content-Type']:
+             if i in response.headers['content-Type']:
                   textFlag = True
                   break 
 
@@ -75,16 +75,23 @@ class BipUmSzczecin(CrawlSpider):
                      log.msg("[GEO]=" + self.geo + "[URL]=" + response.url + "[LINK]=" + l.extract(), level=log.INFO)
 
              """ Propagate item with data if required fields are present """
-             Content = None
+             content = None
 
-             Content = soup.find('div', {'id':'content'})
+             content = soup.find('div', {'id':'content'})
 
-             if Content:
+             if content:
                  item = MyOhMyItem()
                  item['url'] = response.url
                  item['title'] = soup.title.string
                  item['geo'] = self.geo
-                 item['content'] = Content.get_text()
+                 """ try to find publish date. not always present """
+                 p = re.compile(r'.*wytworzono:\s+(\d{4}/\d{2}/\d{2})')
+                 m = p.search(content.get_text())
+                 if(m.group(1)):
+                     item.set_pdate(m.group(1))
+                 else:
+                     item.set_pdate("")
+                 item['content'] = content.get_text()
                  item.write()
                  return item
              else:

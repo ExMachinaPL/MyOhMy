@@ -34,7 +34,7 @@ class Um(CrawlSpider):
         textFlag = False
 
         for i in textHeaders:
-             if i in reposnse.headers['Content-Type']:
+             if i in response.headers['content-Type']:
                   textFlag = True
                   break 
 
@@ -76,17 +76,21 @@ class Um(CrawlSpider):
                      log.msg("[GEO]=" + self.geo + "[URL]=" + response.url + "[LINK]=" + l.extract(), level=log.INFO)
 
              """ Propagate item with data if required fields are present """
-             Content = None
+             content = None
 
              """ Put soup find query to extract content """
-             Content = soup.find() 
+             content = soup.find() 
 
-             if Content:
+             if content:
                  item = MyOhMyItem()
                  item['url'] = response.url
                  item['title'] = soup.title.string
+
+                 """ Find publish date """
+                 publishDate = soup.find()
+                 item.setPdate(publishDate)
                  item['geo'] = self.geo
-                 item['content'] = Content.get_text()
+                 item['content'] = content.get_text()
                  item.write()
                  return item
              else:

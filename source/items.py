@@ -10,7 +10,6 @@ from scrapy.utils.project import get_project_settings
 from dateutil import parser
 from urlparse import urlparse
 import hashlib
-import re
 import os
 import string
 import zipfile
@@ -42,6 +41,12 @@ class MyOhMyItem(Item):
             then subdirectories for year, month, day if apply.
             Filename is a MD5 from url
             If publish date is not available file is written in domain subdirectory named by first 2 chars of filename"""
+
+        """ Put empty string if date is not present """
+        if( not self.get('publish_date')):
+            self['publish_date'] = ''
+
+        """ Create directory name for storing data """
         f = hashlib.new('ripemd160')
         f.update(self.get('url'))
         domain = urlparse(self.get('url'))
@@ -49,10 +54,12 @@ class MyOhMyItem(Item):
             path = self.wdir + "/" + domain.netloc + "/" + str(self.get('datedir'))
         else:
             datadir = f.hexdigest()[:2]
-            path = self.wdir + "/" + domain.netloc + "/" + datadir +"/"
+            path = self.wdir + "/" + domain.netloc + "/0000/" + datadir +"/"
         if not os.path.isdir(path):
             os.makedirs(path)
         fpath = path + f.hexdigest()
+
+        """ Prepare data for writing """
         data = 'URL='+self.get('url')+"\n"+'TITLE='+self.get('title').encode("UTF-8")+"\n"+'PUBLISH_DATE='+str(self.get('publish_date'))+"\n"+'GEO='+self.get('geo')+"\n"+'CONTENT='+self.get('content').encode("UTF-8")
         try:
             if self.zipdir == 1:

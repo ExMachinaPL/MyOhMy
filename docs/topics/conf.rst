@@ -49,7 +49,11 @@ Lokalizacja plików wynikowych
 Pliki wynikowe są umieszczane w katalogach o następującej strukturze::
  -nazwa_crawlera
   -domena_z_której_pochodzą_dane
-   -data publikacji (jesli istnieje)
+   -rok publikacji
+    -miesiąc publikacji
+     -dzień publikacji
+   -0000 (jeśli nie ma daty publikacji)
+    -pierwsze 2 znaki z nazwy pliku 
 
 Nazwy plików są sumą md5 adresu url z którego dane pochodzą.
 

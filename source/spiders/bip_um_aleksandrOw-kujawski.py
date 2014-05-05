@@ -10,10 +10,10 @@ import re
 import ast
 
 class BipUmAleksandrOwKujawski(CrawlSpider):
-    name = 'bip_um_aleksandrOw_kujawski' """ Crawler name """
-    allowed_domains = ['http://www.bip.aleksandrowkujawski.pl/'] """ List of domains to scrap """
-    start_urls = ['http://www.bip.aleksandrowkujawski.pl/'] """ Starting url """
-    geo = ""  """ Geographical coordinates """
+    name = 'bip_um_aleksandrOw_kujawski'
+    allowed_domains = ['www.bip.aleksandrowkujawski.pl']
+    start_urls = ['http://www.bip.aleksandrowkujawski.pl']
+    geo = "52.875048,18.696252"
     settings = get_project_settings()
     logLinks = settings.get('LOG_LINKS')
     logScripts = settings.get('LOG_SCRIPTS')
@@ -22,8 +22,7 @@ class BipUmAleksandrOwKujawski(CrawlSpider):
     logEmpty = settings.get('LOG_EMPTY')
 
     rules = (
-        """ Fill allow with allowed url list """
-        Rule(SgmlLinkExtractor(allow=('')), callback='parse_item', follow=True),
+        Rule(SgmlLinkExtractor(allow=('http://www.bip.aleksandrowkujawski.pl')), callback='parse_item', follow=True),
         Rule(SgmlLinkExtractor(deny=(r'.*\.xml$')), follow=False),
     )
 
@@ -34,7 +33,7 @@ class BipUmAleksandrOwKujawski(CrawlSpider):
         textFlag = False
 
         for i in textHeaders:
-             if i in reposnse.headers['Content-Type']:
+             if i in response.headers['Content-Type']:
                   textFlag = True
                   break 
 
@@ -79,13 +78,17 @@ class BipUmAleksandrOwKujawski(CrawlSpider):
              Content = None
 
              """ Put soup find query to extract content """
-             Content = soup.find() 
+             Content = soup.find('div', {'id':'PageContent'}) 
 
              if Content:
                  item = MyOhMyItem()
                  item['url'] = response.url
                  item['title'] = soup.title.string
                  item['geo'] = self.geo
+                 """ get publish date. If multiple available leave empty """
+                 publishDate = soup.find_all('span',{'class':'metryczka_obiektu_sekcja_opublikowal_data'})
+                 if(publishDate and len(publishDate) == 1):
+                     item.set_pdate(publishDate[0].get_text())
                  item['content'] = Content.get_text()
                  item.write()
                  return item
