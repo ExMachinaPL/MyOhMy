@@ -92,6 +92,7 @@ class BipUmSzczecin(CrawlSpider):
                  else:
                      item.set_pdate("")
                  item['content'] = content.get_text()
+                 item['crawler'] = self.name
                  item.write()
                  return item
              else:

@@ -90,6 +90,7 @@ class BipUmAleksandrOwKujawski(CrawlSpider):
                  if(publishDate and len(publishDate) == 1):
                      item.set_pdate(publishDate[0].get_text())
                  item['content'] = Content.get_text()
+                 item['crawler'] = self.name
                  item.write()
                  return item
              else:

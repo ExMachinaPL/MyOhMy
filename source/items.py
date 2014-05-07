@@ -27,6 +27,8 @@ class MyOhMyItem(Item):
     zipdir = settings.get('WRITE_ZIP')
     gdir = settings.get('GIT_DIR')
     datedir = Field()
+    crawler = Field()
+
 
     def set_pdate(self,pdate):
         """ Method that converts taken argument to common date format """
@@ -51,10 +53,10 @@ class MyOhMyItem(Item):
         f.update(self.get('url'))
         domain = urlparse(self.get('url'))
         if self.get('datedir'):
-            path = self.wdir + "/" + domain.netloc + "/" + str(self.get('datedir'))
+            path = self.wdir + "/" + self.crawler + "/" + domain.netloc + "/" + str(self.get('datedir'))
         else:
             datadir = f.hexdigest()[:2]
-            path = self.wdir + "/" + domain.netloc + "/0000/" + datadir +"/"
+            path = self.wdir + "/" + self.crawler + "/" + domain.netloc + "/0000/" + datadir +"/"
         if not os.path.isdir(path):
             os.makedirs(path)
         fpath = path + f.hexdigest()

@@ -9,8 +9,8 @@ import sys
 import re
 import ast
 
-class Um(CrawlSpider):
-    name = '' """ Crawler name """
+class Bip(CrawlSpider):
+    name = '' """ Crawler name - same as filename """
     allowed_domains = [] """ List of domains to scrap """
     start_urls = [] """ Starting url """
     geo = ""  """ Geographical coordinates """
@@ -88,9 +88,10 @@ class Um(CrawlSpider):
 
                  """ Find publish date """
                  publishDate = soup.find()
-                 item.setPdate(publishDate)
+                 item.set_pdate(publishDate)
                  item['geo'] = self.geo
                  item['content'] = content.get_text()
+                 item['crawler'] = name
                  item.write()
                  return item
              else:

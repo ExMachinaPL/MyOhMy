@@ -9,8 +9,8 @@ Lista urzędów miast
 ============================================= ======
                   Miasto                       Jest
 ============================================= ======
-Urząd Miasta Aleksandrów Kujawski
-Urząd Miasta Augustów
+Urząd Miasta Aleksandrów Kujawski              Tak
+Urząd Miasta Augustów                          Tak
 Urząd Miasta Bartoszyce
 Urząd Miasta Bełchatowa
 Urząd Miasta Bełżyce
@@ -245,7 +245,7 @@ Urząd Miasta Stołecznego Warszawy
 Urząd Miasta Strzelce Krajeńskie
 Urząd Miasta Sulejówek
 Urząd Miasta Sulmierzyce
-Urząd Miasta Szczecin
+Urząd Miasta Szczecin                           Tak
 Urząd Miasta Szczecinek
 Urząd Miasta Szklarska Poręba
 Urząd Miasta Śrem
