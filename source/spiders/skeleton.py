@@ -91,7 +91,7 @@ class Bip(CrawlSpider):
                  item.set_pdate(publishDate)
                  item['geo'] = self.geo
                  item['content'] = content.get_text()
-                 item['crawler'] = name
+                 item['crawler'] = self.name
                  item.write()
                  return item
              else:
